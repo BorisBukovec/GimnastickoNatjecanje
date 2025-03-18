@@ -44,7 +44,7 @@ export default function KluboviPregled(){
     return(
         <>
         <Link
-        to={RouteNames.SMJER_NOVI}
+        to={RouteNames.KLUB_NOVI}
         className="btn btn-success siroko"
         >Dodaj novi klub</Link>
         <Table striped bordered hover responsive>

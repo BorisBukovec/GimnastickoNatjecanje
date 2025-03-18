@@ -27,7 +27,7 @@ export default function KluboviPromjena(){
             alert(odgovor.poruka)
             return
         }
-        navigate(RouteNames.SMJER_PREGLED)
+        navigate(RouteNames.KLUB_PREGLED)
     }
 
     function odradiSubmit(e){ // e je event
@@ -69,7 +69,7 @@ export default function KluboviPromjena(){
         <Row>
             <Col xs={6} sm={6} md={3} lg={2} xl={6} xxl={6}>
                 <Link
-                to={RouteNames.SMJER_PREGLED}
+                to={RouteNames.KLUB_PREGLED}
                 className="btn btn-danger siroko"
                 >Odustani</Link>
             </Col>

@@ -1,4 +1,4 @@
-using Backend.Data;
+﻿using Backend.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +16,15 @@ builder.Services.AddSwaggerGen();
 // dodavanje db contexta
 builder.Services.AddDbContext<BackendContext>(o => {
     o.UseSqlServer(builder.Configuration.GetConnectionString("BackendContext"));
+});
+
+
+// Svi se od svuda na sve moguce nacine mogu spojitina naš API
+// citati https://code-maze.com/aspnetcore-webapi-best-practices/
+builder.Services.AddCors(o => {
+    o.AddPolicy("CorsPolicy", b => {
+        b.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+    });
 });
 
 var app = builder.Build();
@@ -43,5 +52,8 @@ app.MapControllers();
 app.UseStaticFiles();
 app.UseDefaultFiles();
 app.MapFallbackToFile("index.html");
+
+
+app.UseCors("CorsPolicy");
 
 app.Run();
